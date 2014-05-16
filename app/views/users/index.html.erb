@@ -1,0 +1,11 @@
+<div class="container">
+<h1>Fantasy League Members</h1>
+
+<% @users.each do |u| %>
+<blockquote>
+	<p><%= u.name %></p>
+	<p><%= link_to "view profile", user_path(u) %></p>
+</blockquote>
+<% end %>
+
+</div>

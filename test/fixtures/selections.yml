@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  baseball_team: MyString
+  football_team: MyString
+
+two:
+  baseball_team: MyString
+  football_team: MyString

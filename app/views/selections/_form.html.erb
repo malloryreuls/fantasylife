@@ -1,0 +1,9 @@
+<%= form_for [@user, @selection] do |f| %>
+<ul>
+	<div class="form-group"><p>Select a Baseball Team: <%= f.select :baseball_team, Selection.baseball_options %></p></div>
+	<p>Select a Football Team:<%= f.select :football_team, Selection.football_options %></p>
+	<p>Select a Basketball Team: <%= f.select :basketball_team, Selection.basketball_options %></p>
+	<p>Select a Hockey Team: <%= f.select :hockey_team, Selection.hockey_options %></p>
+	<p><%= f.submit "Add to my Fantasy Life" %></p>
+</ul>
+<% end %> 

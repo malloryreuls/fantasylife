@@ -1,0 +1,10 @@
+<div class="container">
+<h1>Login</h1>
+<%= form_for :session, :url => sessions_path do |f| %>
+<%= f.text_field :email, placeholder: "Email" %>
+<%= f.password_field :password, placeholder: "Password" %>
+<%= f.submit "Login" %>
+
+<% end %>
+
+</div>

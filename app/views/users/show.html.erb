@@ -1,0 +1,39 @@
+<div class="container">
+	<h1><%= @user.name %>'s Profile</h1>
+	<blockquote>
+		<p>Username: <%= @user.name %></p>
+		<p>Email: <%= @user.email %></p>
+	</blockquote>
+
+	<% if @user.selections.length > 0 %>
+	<div class="btn-group">
+		<% @user.selections.each do |s| %>
+		<ul>
+			<li>My Baseball Team: <%= s.baseball_team %></li>
+			<li>My Football Team: <%= s.football_team %></li>
+			<li>My Basketball Team: <%= s.basketball_team %></li>
+			<li>My Hockey Team: <%= s.hockey_team %></li>
+		</ul>
+			<% if @user == current_user %>
+			<p><%= link_to "Edit my Selections", edit_user_selection_path(@user, s), class: 'btn btn-warning btn-sm' %>
+			<%= link_to "Delete my Selections", [@user, s], {method: :delete, class: 'btn btn-danger btn-sm'} %></p>
+			<% end %>
+		<% end %>
+	</div>
+	<% else %>
+	<p><b><%= @user.name %></b> has not created a Fantasy Life yet :(</p>
+	<% end %>
+
+	<div class="row">		
+			<% if @user == current_user %>
+				<% if @user.selections.length == 0 %>
+					<%= link_to "Add Selections", new_user_selection_path(@user), class: 'btn btn-primary btn-lg' %>
+				<% end %>
+			<% end %>
+			<%#= link_to "Edit User", edit_user_path(@user.id), class: 'btn btn-warning btn-lg' %> 
+			<%#	= link_to "Delete User", {action: "destroy", id:@user}, {method: :delete, data:{confirm: "Are you sure you want to delete this user?"}, class: 'btn btn-danger btn-lg'} %>
+			
+		
+		
+	</div>
+</div>

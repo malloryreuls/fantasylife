@@ -1,0 +1,12 @@
+<div class="container">
+<h1>New User</h1>
+
+<%= form_for @user do |f| %>
+<%= f.text_field :name, placeholder: "Username" %>
+<%= f.text_field :email, placeholder: "Email address" %>
+<%= f.password_field :password, placeholder: "Password" %>
+<%= f.submit "Add User" %>
+<% end %>
+
+<%= link_to "Back to User List", users_path %>
+</div>
