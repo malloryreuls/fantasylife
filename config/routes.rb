@@ -1,13 +1,11 @@
 Rails.application.routes.draw do
-  get 'leaderboard/index'
-
   resources :users do
     resources :selections
   end
 
   resource :sessions, only: [:new, :create, :destroy]
+  resources :leaderboard
   resource :welcome, only: [:index]
-  resource :leaderboard, only: [:index]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

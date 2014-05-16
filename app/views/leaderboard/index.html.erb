@@ -1,2 +1,36 @@
-<h1>Leaderboard#index</h1>
-<p>Find me in app/views/leaderboard/index.html.erb</p>
+<div class="container">
+	<h1>Fantasy League Leaderboard</h1>
+
+	<div class="row">
+		<div class="col-xs-6 col-sm-2"></div>
+		<div class="col-xs-6 col-sm-2">Username</div>
+		<div class="col-xs-6 col-sm-2">Baseball Team</div>
+
+		<!-- Add the extra clearfix for only the required viewport -->
+		<div class="clearfix visible-xs"></div>
+
+		<div class="col-xs-6 col-sm-2">Football Team</div>
+		<div class="col-xs-6 col-sm-2">Baseketball Team</div>
+		<div class="col-xs-6 col-sm-2">Hockey Team</div>
+	</div>
+
+	<div class="row">
+		<% @users.each do |u| %>
+		<div class="col-xs-6 col-sm-2">Username:</div>
+		<div class="col-xs-6 col-sm-2"><%= u.name %></div>
+		<% @selections.where(:user_id => u.id).each do |s| %>
+		<div class="col-xs-6 col-sm-2"><%= s.baseball_team %></div>
+
+		<!-- Add the extra clearfix for only the required viewport -->
+		<div class="clearfix visible-xs"></div>
+
+		<div class="col-xs-6 col-sm-2"><%= s.football_team %></div>
+		<div class="col-xs-6 col-sm-2"><%= s.basketball_team %></div>
+		<div class="col-xs-6 col-sm-2"><%= s.hockey_team %></div>
+	</div>
+	<% end %>
+
+
+	<% end %>
+
+</div>
