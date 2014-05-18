@@ -14,7 +14,7 @@ class UsersController < ApplicationController
     if @user.save
       flash[:success] = "Sign up successful"
       session[:remember_token] = @user.id.to_s
-      redirect_to users_path
+      redirect_to leaderboard_index_path
     else
       flash[:danger] = "Sign up failed, try again"
       render 'new'
@@ -37,7 +37,7 @@ class UsersController < ApplicationController
 
   def destroy
     @user.destroy
-    redirect_to users_path
+    redirect_to :root
   end
 
 private
