@@ -23,15 +23,18 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><%= link_to "View Users", users_path %></li>
+        <% if !current_user %>
+        <li class="navbar-text navbar-right">Sign in to see leaderboard</li>
+        <% else %>
         <li><%= link_to "Leaderboard", leaderboard_index_path %></li>
+        <% end %> 
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if !current_user %>     
           <li><%= link_to "Sign Up", new_user_path %></li>
           <li><%= link_to "Sign In", new_sessions_path %></li>
         	<% else %>
-          <li>Hello, <%= current_user.name %></li>
+          <li class="navbar-text navbar-right">Hello, <%= current_user.name %></li>
           <li><%= link_to "Sign Out", sessions_path, :method => :delete %></li>
         <% end %> 
       </ul> 

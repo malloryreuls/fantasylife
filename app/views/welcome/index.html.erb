@@ -1,7 +1,12 @@
 <div class="container">
-<div class="logo">
-<h1>Welcome to Fantasy Life</h1>
+	<div class="logo">
+		<h1>Welcome to Fantasy Life</h1>
 
-	<div> <%= image_tag "fantasylogo.png" %> </div>
-</div>
+			<div> <%= image_tag "fantasylogo.png" %> </div>
+			<br />
+			<div class="btn-group btn-group-lg">
+				<%= link_to "Sign Up", new_user_path, class:'btn btn-success btn-lg' %> 
+				<%= link_to "Sign In", new_sessions_path, class:'btn btn-primary btn-lg' %>
+			</div>
+	</div>
 </div>

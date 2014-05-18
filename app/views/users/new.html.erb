@@ -1,12 +1,13 @@
 <div class="container">
-<h1>New User</h1>
+<h2>Create an account:</h2>
 
 <%= form_for @user do |f| %>
 <%= f.text_field :name, placeholder: "Username" %>
 <%= f.text_field :email, placeholder: "Email address" %>
 <%= f.password_field :password, placeholder: "Password" %>
-<%= f.submit "Add User" %>
+<%= f.submit "Sign me up!" %>
 <% end %>
 
-<%= link_to "Back to User List", users_path %>
+<br />
+<p>Already have an account? <%= link_to "Sign in here", new_sessions_path %></p>
 </div>

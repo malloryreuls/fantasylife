@@ -11,13 +11,13 @@ class SessionsController < ApplicationController
 			session[:remember_token] = @user.id.to_s
 			@current_user = @user
 			flash[:success] = "Welcome to Fantasy Life"
-			redirect_to users_path
+			redirect_to leaderboard_index_path
 		end
 	end
 
 	def destroy
 		session.delete(:remember_token)
-		redirect_to users_path
+		redirect_to :root
 	end
 
 end
