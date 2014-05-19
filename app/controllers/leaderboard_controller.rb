@@ -1,6 +1,5 @@
 class LeaderboardController < ApplicationController
   def index
-  	@users = User.all
-  	@selections = Selection.all
+  	@users = User.all.select {|u| u.selections.present?} 
   end
 end

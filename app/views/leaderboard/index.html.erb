@@ -13,9 +13,7 @@
     </tr>
     <tr>
       <% @users.each do |u| %>
-      <% next unless u.selections.present? %>
       <td><%= link_to u.name, user_path(u) %></td>
-
       <% u.selections.each do |s| %>
       <td><%= s.baseball_team %></td> 
       <td><%= s.football_team %></td>
@@ -25,5 +23,9 @@
     <% end %>
     <% end %>
   </table>
+
+<% if needs_selections?(current_user) %>
+  <%= link_to "Add Selections", new_user_selection_path(current_user), class: "btn btn-primary btn-lg" %>
+<% end %>
 
 </div>
