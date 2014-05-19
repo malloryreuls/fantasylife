@@ -3,6 +3,7 @@
 	<%= form_for (@user) do |f| %>
 		Name: <%= f.text_field :name %>
 		Email: <%= f.text_field :email %>
+		<p>Upload a photo: <%= f.file_field :picture %></p>
 		<%= f.submit %>
 
 	<% end %>

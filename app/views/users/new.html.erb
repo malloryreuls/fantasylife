@@ -5,6 +5,7 @@
 <%= f.text_field :name, placeholder: "Username" %>
 <%= f.text_field :email, placeholder: "Email address" %>
 <%= f.password_field :password, placeholder: "Password" %>
+<p>Upload a photo: <%= f.file_field :picture %></p>
 <%= f.submit "Sign me up!" %>
 <% end %>
 

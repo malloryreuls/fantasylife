@@ -1,6 +1,7 @@
 <div class="container">
 	<h1><%= @user.name %>'s Profile</h1>
 	<blockquote>
+		<p><%= image_tag @user.picture.url(:thumb) %></p>
 		<p>Username: <%= @user.name %></p>
 		<p>Email: <%= @user.email %></p>
 	</blockquote>
