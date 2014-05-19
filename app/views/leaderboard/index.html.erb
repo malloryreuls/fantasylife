@@ -1,28 +1,29 @@
 <div class="container">
   <div class="page-header">
-  <h1>Fantasy League Leaderboard:</h1>
-</div>
+    <h1>Fantasy League Leaderboard:</h1>
+  </div>
 
-<table class="table table-striped">
-<tr>
-  <th>Username</th>
-  <th>Baseball Team</th> 
-  <th>Football Team</th> 
-  <th>Basketball Team</th>
-  <th>Hockey Team</th> 
-</tr>
-<tr>
-<% @users.each do |u| %>
-  <td><%= link_to u.name, user_path(u) %></td>
+  <table class="table table-striped">
+    <tr>
+      <th>Username</th>
+      <th>Baseball Team</th> 
+      <th>Football Team</th> 
+      <th>Basketball Team</th>
+      <th>Hockey Team</th> 
+    </tr>
+    <tr>
+      <% @users.each do |u| %>
+      <% next unless u.selections.present? %>
+      <td><%= link_to u.name, user_path(u) %></td>
 
- <% @selections.where(:user_id => u.id).each do |s| %>
-  <td><%= s.baseball_team %></td> 
-  <td><%= s.football_team %></td>
-  <td><%= s.basketball_team %></td> 
-  <td><%= s.hockey_team %></td>
-</tr>
-<% end %>
-<% end %>
-</table>
+      <% u.selections.each do |s| %>
+      <td><%= s.baseball_team %></td> 
+      <td><%= s.football_team %></td>
+      <td><%= s.basketball_team %></td> 
+      <td><%= s.hockey_team %></td>
+    </tr>
+    <% end %>
+    <% end %>
+  </table>
 
 </div>
